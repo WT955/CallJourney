@@ -70,7 +70,7 @@ namespace Bowling_Game
                     else if (rolls[i] + rolls[i + 1] == 10) // if spare
                     {
                         score += rolls[i] + rolls[i + 1] + rolls[i + 2];
-                        Console.WriteLine("({0}, {1}, {2})", rolls[i], rolls[i + 1], rolls[i + 2]);
+                        Console.WriteLine("({0}, {1})", rolls[i], rolls[i + 1]);
                         Console.WriteLine(score + "\n");
                         i += 2;
                     }
