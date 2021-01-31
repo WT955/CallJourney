@@ -68,9 +68,9 @@ namespace Shopping_Game
         private string freeItem;
         private string promoItem;
         private int deals = 0;
+
         public Checkout(int pricingRules)
         {
-
             if (pricingRules == 1)
             {
                 promoItem = "atv";
@@ -88,20 +88,19 @@ namespace Shopping_Game
                 freeItem = "vga";
                 deals = 3;
             }
-
         }
+
         public void scan(string item)
         {
             Items.Add(item);
             itemCount++;
         }
-        public void total()
 
+        public void total()
         {
             var data = GetTable();
             var totalPrice = 0.0;
             var promoItemCount = 0;
-
 
             for (int i = 0; i < Items.Count; i++) // calucate total amount of the order
             {
