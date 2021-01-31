@@ -266,13 +266,11 @@ namespace Tennis_game
                 if (setPly1 - setPly2 >= 2) //player1 wins the game
                 {
                     Console.WriteLine("\nPlayer 1 Win!");
-
                 }
                 else if (setPly2 - setPly1 >= 2) // player2 wins the game
                 {
                     Console.WriteLine("\nPlayer 2 Win!");
                 }
-
             }
         }
     }
