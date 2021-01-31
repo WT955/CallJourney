@@ -1,32 +1,25 @@
 ﻿/*
  The interface should look something like this in .Net:
-
 ```
-
   Match match = new Match("player 1", "player 2");
   match.pointWonBy("player 1");
   match.pointWonBy("player 2");
   // this will return "0-0, 15-15"
   match.score();
-
   match.pointWonBy("player 1");
   match.pointWonBy("player 1");
   // this will return "0-0, 40-15"
   match.score();
-
   match.pointWonBy("player 2");
   match.pointWonBy("player 2");
   // this will return "0-0, Deuce"
   match.score();
-
   match.pointWonBy("player 1");
   // this will return "0-0, Advantage player 1"
   match.score();
-
   match.pointWonBy("player 1");
   // this will return "1-0"
   match.score();
-
 ```
  */
 
@@ -80,18 +73,18 @@ namespace Tennis_game
             match.score();
 
             match.setResult(); // print result of the match
-            Console.ReadLine(); 
+            Console.ReadLine();
 
         }
 
-        public int scorePly1 = 0;
-        public int scorePly2 = 0;
-        public int setPly1 = 0;
-        public int setPly2 = 0;
-        public bool deuce = false;
-        public bool tieBreak = false;
-        public bool gameEnd = false;
-        public string gameResult;
+        private int scorePly1 = 0;
+        private int scorePly2 = 0;
+        private int setPly1 = 0;
+        private int setPly2 = 0;
+        private bool deuce = false;
+        private bool tieBreak = false;
+        private bool gameEnd = false;
+        private string gameResult;
 
         public void score() // scoring function
         {
@@ -105,7 +98,7 @@ namespace Tennis_game
                 scorePly2 = 40;
             }
             // deuce scoring
-            if (scorePly1 == 40 & scorePly2 == 40 & deuce == false) 
+            if (scorePly1 == 40 & scorePly2 == 40 & deuce == false)
             {
                 gameResult = Convert.ToString(setPly1) + "-" + Convert.ToString(setPly2) + ", Deuce";
                 deuce = true;
@@ -157,10 +150,10 @@ namespace Tennis_game
                     scorePly2 = 0;
                 }
                 else if (gameEnd == false)
-                { 
+                {
                     gameResult = Convert.ToString(setPly1) + "-" + Convert.ToString(setPly2) + ", " + Convert.ToString(scorePly1) + "-" + Convert.ToString(scorePly2);
                 }
-             }
+            }
 
             // tie-break scoring
             if (tieBreak == true)
@@ -238,7 +231,7 @@ namespace Tennis_game
                     {
                         scorePly2 += 1;
                     }
-                } 
+                }
                 else
                 {
                     tieBreak = false;
@@ -265,7 +258,7 @@ namespace Tennis_game
                     gameResult = "\nPlayer 2 Win!";
                     gameEnd = true;
                 }
-                else 
+                else
                 {
                     if (player == "player 1")
                     {
@@ -283,8 +276,8 @@ namespace Tennis_game
         }
         public void setResult() // generate result of the match function
         {
-            if (setPly1 >= 6 | setPly2 >=6)
-            { 
+            if (setPly1 >= 6 | setPly2 >= 6)
+            {
                 if (setPly1 - setPly2 >= 2) //player1 wins the game
                 {
                     Console.WriteLine("\nPlayer 1 Win!");
@@ -297,7 +290,7 @@ namespace Tennis_game
                 else
                 {
                     if (setPly1 - setPly2 != 0)
-                    { 
+                    {
                         var lapLeft = Math.Abs(setPly1 - setPly2);
                         Console.WriteLine("{0} more set to go!!", lapLeft);
                     }
