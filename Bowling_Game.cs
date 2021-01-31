@@ -28,7 +28,6 @@ namespace Bowling_Game
            bowlingGame.Roll(10);
 
            bowlingGame.Score(); */
-            //Console.WriteLine("Your total score is {0}", bowlingGame.Score);
 
             //10x strike
             for (var i = 0; i < 12; i++)
