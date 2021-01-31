@@ -42,7 +42,7 @@ namespace Tennis_game
             match.pointWonBy("player 1");
             // this will return "0-0, 40-15"
             match.score();
-
+            
             match.pointWonBy("player 2");
             match.pointWonBy("player 2");
             // this will return "0-0, Deuce"
@@ -52,27 +52,10 @@ namespace Tennis_game
             // this will return "0-0, Advantage player 1"
             match.score();
 
-            match.pointWonBy("player 2");
-            // this will return "duece"
-            match.score();
-
             match.pointWonBy("player 1");
             // this will return "1-0"
             match.score();
-
-            match.pointWonBy("player 2");
-            // this will return "duece"
-            match.score();
-
-            match.pointWonBy("player 2");
-            // this will return "duece"
-            match.score();
-
-            match.pointWonBy("player 2");
-            //this will return "1-0"
-            match.score();
-
-            match.setResult(); // print result of the match
+            
             Console.ReadLine();
 
         }
@@ -87,11 +70,12 @@ namespace Tennis_game
         private string gameResult;
 
         public void score() // scoring function
-        {
+        {            
             //  convert score
             if (scorePly1 == 45 & scorePly2 != 45)
             {
                 scorePly1 = 40;
+     
             }
             else if (scorePly2 == 45 & scorePly1 != 45)
             {
@@ -156,7 +140,7 @@ namespace Tennis_game
             }
 
             // tie-break scoring
-            if (tieBreak == true)
+            if (tieBreak == true & gameEnd == false)
             {
                 if (scorePly1 == 3 & scorePly2 == 3 & deuce == false) // deuce
                 {
@@ -214,6 +198,7 @@ namespace Tennis_game
                 }
             }
             Console.WriteLine(gameResult);
+            setResult(); // print result of the match
         }
 
         public void pointWonBy(string player) // adding score to players function
@@ -250,12 +235,12 @@ namespace Tennis_game
                 tieBreak = false;
                 if ((setPly1 >= 6 & setPly2 <= 6) & (setPly1 - setPly2 >= 2))
                 {
-                    gameResult = "\nPlayer 1 Win!";
+                    gameResult = "...";
                     gameEnd = true;
                 }
                 else if ((setPly2 >= 6 & setPly1 <= 6) & (setPly2 - setPly1 >= 2))
                 {
-                    gameResult = "\nPlayer 2 Win!";
+                    gameResult = "...";
                     gameEnd = true;
                 }
                 else
@@ -287,14 +272,7 @@ namespace Tennis_game
                 {
                     Console.WriteLine("\nPlayer 2 Win!");
                 }
-                else
-                {
-                    if (setPly1 - setPly2 != 0)
-                    {
-                        var lapLeft = Math.Abs(setPly1 - setPly2);
-                        Console.WriteLine("{0} more set to go!!", lapLeft);
-                    }
-                }
+
             }
         }
     }
